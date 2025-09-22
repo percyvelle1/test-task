@@ -9,7 +9,7 @@ def health():
 
 @app.route("/")
 def hello():
-    return "test test test seifolla."
+    return "zerooo downtime teeeeest."
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "3000"))
