@@ -1,14 +1,12 @@
 name: devops-test
 services:
   app:
-    container_name: hello_world_container
     build: ./app
     env_file: .env
     restart: unless-stopped
     networks: [web]
 
   nginx:
-    container_name: nginx_container
     build: ./nginx
     depends_on:
       - app
@@ -25,4 +23,3 @@ volumes:
 networks:
   web:
     driver: bridge
-    ##
