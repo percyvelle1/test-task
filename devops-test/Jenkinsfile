@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/<github_user>/devops-test.git'
+            }
+        }
+
+        stage('Build & Deploy') {
+            steps {
+                sshagent(['deploy-key']) {  // ID твоего SSH ключа в Jenkins
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no debian@<IP_сервера> "
+                          cd ~/devops-test || git clone https://github.com/<github_user>/devops-test.git ~/devops-test
+                          cd ~/devops-test
+                          git pull
+                          docker compose up -d --build
+                        "
+                    '''
+                }
+            }
+        }
+    }
+}
