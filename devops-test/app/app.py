@@ -9,7 +9,7 @@ def health():
 
 @app.route("/")
 def hello():
-    return "Hello, World! from the test task container."
+    return "test test."
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", "3000"))
