@@ -329,8 +329,3 @@ git fetch origin main && git reset --hard origin/main
 
 ---
 
-## Планы на улучшения
-- Хранить образы в реестре (GHCR/Docker Hub), деплой через `docker compose pull`.
-- Blue‑Green деплой (два стека и переключение трафика).
-- Автоматическая проверка `/healthz` каждого инстанса и вывод метрик в Prometheus.
-- Тераформ/Ansible для развёртывания хоста.
