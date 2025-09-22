@@ -16,7 +16,6 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no debian@82.115.48.254 "
                           set -e
 
-                          # если нет git-репозитория, пересоздаём каталог
                           if [ ! -d ~/devops-test/.git ]; then
                             rm -rf ~/devops-test
                             git clone https://github.com/percyvelle1/test-task.git ~/devops-test
@@ -24,15 +23,12 @@ pipeline {
 
                           cd ~/devops-test/devops-test
 
-                          # обновляем репозиторий
                           git pull
 
-                          # гарантируем, что запущено 2 реплики приложения (rolling update)
                           docker compose up -d --scale app=2 --no-deps --build app
 
-                          # ждём, пока контейнеры приложения поднимутся
                           sleep 5
-                          # проверка, что приложение отвечает через Nginx
+
                           curl -fsS http://localhost || (echo 'App healthcheck failed' && exit 1)
                         "
                     '''
