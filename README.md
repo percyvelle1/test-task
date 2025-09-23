@@ -327,5 +327,10 @@ git fetch origin main && git reset --hard origin/main
 **Jenkins тянет `master`, а у нас `main`**  
 В настройках SCM укажите ветку `*/main` и правильный путь к Jenkinsfile (например, `devops-test/Jenkinsfile`).
 
----
 
+Скрин деплоя Jenkins 
+<img width="1093" height="696" alt="изображение" src="https://github.com/user-attachments/assets/ed5bae55-97da-4f8a-81a5-71c51869fb70" /> 
+<img width="1408" height="744" alt="изображение" src="https://github.com/user-attachments/assets/9de83a5a-bf2e-4f55-8b94-848c6bd26c28" />
+
+
+---
